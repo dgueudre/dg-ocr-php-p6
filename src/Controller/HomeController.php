@@ -1,13 +1,15 @@
 <?php
 
-use Symfony\Component\HttpFoundation\Response;
+namespace App\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-class HomeController
+class HomeController extends AbstractController
 {
     #[Route('/')]
     public function home()
     {
-        return new Response('page Home');
+        return $this->render('home.html.twig');
     }
 }
