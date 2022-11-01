@@ -3,6 +3,9 @@
 {% block title 'Snowtricks - Connexion' %}
 
 {% block body %}
+	{% if error %}
+		<pre>{{ error.message }}</pre>
+	{% endif %}
 	<form action="{{ path('app_login') }}" method="post">
 
 		<label for="username">Identifiant:</label>
@@ -10,6 +13,8 @@
 
 		<label for="password">Mot de passe:</label>
 		<input type="text" id="password" name="_password"/>
+
+		<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
 		<button type="submit">Connexion</button>
 
